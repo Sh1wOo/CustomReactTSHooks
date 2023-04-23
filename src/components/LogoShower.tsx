@@ -1,5 +1,5 @@
 import { useToggle } from '../hooks/useToggle';
-import { Button } from '../ui/Button';
+import { Button } from '../ui/Button/Button';
 import logo from '../assets/react.svg';
 
 const LogoShower = () => {

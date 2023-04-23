@@ -1,6 +1,6 @@
 import { useState, useRef, useCallback } from "react"
 import { useOnClickOutside } from "../hooks/useOnClickOutside"
-import { Button } from "../ui/Button"
+import { Button } from "../ui/Button/Button"
 import Modal from "./modals/Modal"
 
 const TestOnClickOutside = () => {
@@ -16,18 +16,17 @@ const TestOnClickOutside = () => {
 		useCallback(() => setModalOpen(false), [])
 	)
 
-
 	return (
 		<>
 			{isModalOpen ? (
-				<Modal setModalOpen={setModalOpen} modalRef={ref} text="👋 Hey, I'm a modal. Click anywhere outside of me to close."/>
+				<Modal setModalOpen={setModalOpen} modalRef={ref} text="👋 Привет, это модальное окно. Нажми вне меня или на крестик что бы меня закртыть 😘."/>
 			) : (
 				<Button
 					style={{ margin: "50px" }}
 					type='primary'
 					onClick={() => setModalOpen(true)}
 				>
-					Open Modal
+					Открыть модальное окно
 				</Button>
 			)}
 		</>

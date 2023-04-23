@@ -3,13 +3,13 @@ import './Button.css';
 
 type ButtonType = 'primary' | 'success' | 'error';
 
-interface Props extends HTMLProps<HTMLButtonElement> {
+interface ButtonProps extends HTMLProps<HTMLButtonElement> {
   children: string;
   className?: string;
   type: ButtonType;
 }
 
-const Button: FC<Props> = ({ children, className, type, ...props }) => {
+const Button: FC<ButtonProps> = ({ children, className, type, ...props }) => {
   let style: string = '';
 
   switch (type) {
