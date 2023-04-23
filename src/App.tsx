@@ -5,25 +5,22 @@ import Books from './components/Books';
 import LogoShower from './components/LogoShower';
 import TestUseAsync from './components/TestUseAsync';
 import TestUseLocalStrorage from './components/TestUseLocalStrorage';
-import { Button } from './ui/Button';
-import { useToggle } from './hooks/useToggle';
-
 import TestOnClickOutside from './components/TestOnClickOutside';
+import TestUseHover from './components/TestUseHover';
 
 function App() {
-	const [isClicked, setClicked] = useToggle(true);
 
 	return (
-		<>
+		<div className={`app`} style={{width: '400px'}}>
       <TestOnClickOutside/>
+			<TestUseHover/>
 			<LogoShower />
 			<TestUseLocalStrorage />
 			<Books items={books} />
 			<div style={{ marginTop: '50px' }}>
 				<TestUseAsync />
 			</div>
-			<Button style={{ marginTop: '50px' }} type='primary'>ETst</Button>
-		</>
+		</div>
 	);
 }
 

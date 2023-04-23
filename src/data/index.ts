@@ -1,8 +1,4 @@
-interface Books {
-    id: number;
-    title: string;
-    price: number;
-}
+import { Books } from "./index.interface";
 
 export const books: Books[] = [
   {
