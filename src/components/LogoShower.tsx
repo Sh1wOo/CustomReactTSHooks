@@ -7,7 +7,7 @@ const LogoShower = () => {
 
   return (
     <>
-      <Button type='primary' className='test' onClick={toggleVisibale}>
+      <Button style={{margin: '10px'}} type='primary' className='test' onClick={toggleVisibale}>
         {!isVisible ? 'Показать лого' : 'Скрыть лого'}
       </Button>
 

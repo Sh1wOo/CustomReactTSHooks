@@ -1,11 +1,10 @@
 import { useRef } from 'react';
 import { useAsync } from '../hooks/useAsync';
 import { Button } from '../ui/Button/Button';
-import Input from '../ui/Input/Input';
+import { Input } from '../ui/Input/Input';
 
 const TestUseAsync = () => {
 	const inputRef = useRef<HTMLInputElement>(null);
-
 	const { execute, status, value, error }: any = useAsync<string>(
 		() => myFunction(inputRef.current?.value ?? ''),
 		false
@@ -14,14 +13,21 @@ const TestUseAsync = () => {
 	return (
 		<div style={{}}>
 			{status === 'idle' && (
-				<div style={{ margin: '40px' }}>
+				<div
+					style={{ margin: '40px', display: 'flex', flexDirection: 'column' }}
+				>
 					<label>Вывод данных из GitHub</label>
 					<Input
 						innerRef={inputRef}
 						placeholder='Имя профиля'
 						style={{ marginTop: '20px' }}
-						styleType='primary'
+						styleType='error'
 						type='text'
+						onKeyDown={(e) => {
+							if(e.key === "Enter") {
+								console.log(execute());
+							}
+						}}
 					/>
 				</div>
 			)}
@@ -31,14 +37,19 @@ const TestUseAsync = () => {
 						style={{
 							width: '100px',
 							height: '100px',
+							marginLeft: '100px',
 							flexDirection: 'column',
 							borderRadius: ' 16px',
 						}}
 						src={value?.split(' ')[1]}
 						alt=''
 					/>
-					<div style={{margin: '20px'}}>
-						<a href={value?.split(' ')[2]} target='_blank' style={{ margin: '40px' }}>
+					<div style={{ margin: '20px' }}>
+						<a
+							href={value?.split(' ')[2]}
+							target='_blank'
+							style={{ margin: '40px', marginLeft: '100px' }}
+						>
 							{value?.split(' ')[0]}
 						</a>
 					</div>
@@ -48,7 +59,12 @@ const TestUseAsync = () => {
 				<div style={{ margin: '40px' }}>{error?.message}</div>
 			)}
 
-			<Button type='primary' onClick={execute} disabled={status === 'pending'}>
+			<Button
+				style={{ marginBottom: '50px', marginLeft: '30px' }}
+				type='primary'
+				onClick={execute}
+				disabled={status === 'pending'}
+			>
 				{status !== 'pending' ? 'Получить данные из GitHub' : 'Загрузка...'}
 			</Button>
 		</div>

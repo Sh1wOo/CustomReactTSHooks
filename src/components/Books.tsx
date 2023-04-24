@@ -16,7 +16,7 @@ const Book = ({ id, title, price }: Book) => {
 		<div className='book'>
 			<h2>{title}</h2>
 			<span>{price}</span>
-			<Button type='success' className='book-btn'>
+			<Button style={{margin: '30px'}} type='success' className='book-btn'>
 				Buy
 			</Button>
 		</div>
@@ -25,7 +25,7 @@ const Book = ({ id, title, price }: Book) => {
 
 const Books = ({ items }: BooksProps) => {
 	return (
-		<div className='books'>
+		<div style={{marginLeft: '50px', marginTop:	'20px'}} className='books'>
 			{items.map((book) => (
 				<Book key={book.id} {...book} />
 			))}

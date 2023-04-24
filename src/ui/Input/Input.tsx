@@ -29,7 +29,7 @@ const Input: FC<InputProps> = ({
 			style = 'input-orange input-G';
 			break;
 		case 'error':
-			style = 'input-err input-G';
+			style = 'input-error input-G';
 			break;
 	}
 
@@ -45,4 +45,4 @@ const Input: FC<InputProps> = ({
 	);
 };
 
-export default Input;
+export { Input };
