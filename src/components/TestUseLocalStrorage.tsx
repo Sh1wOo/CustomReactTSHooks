@@ -2,7 +2,7 @@ import { useKeyPress } from '../hooks/useKeyPress';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { Input } from '../ui/Input/Input';
 import { Button } from '../ui/Button/Button';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 
 const TestUseLocalStorage = () => {
 	const inputRef = useRef<HTMLInputElement>(null);
@@ -23,8 +23,8 @@ const TestUseLocalStorage = () => {
 				style={{ margin: '20px' }}
 				styleType='success'
 				onKeyDown={(e) => {
-					if(e.key === "Enter") {
-						setValue(inputRef.current?.value ?? '')
+					if (e.key === 'Enter') {
+						setValue(inputRef.current?.value ?? '');
 					}
 				}}
 				type='text'
